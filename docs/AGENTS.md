@@ -259,8 +259,34 @@ Where:
    ```
 2. **Work on the branch** - Complete checklist items
 3. **Commit changes** - Make regular commits with descriptive messages
-4. **Push the branch** - Push to remote when ready for review
-5. **Create pull request** - When work is complete or ready for review
+4. **Push the branch** - Push to remote when ready for review:
+   ```bash
+   git push -u origin agent-[ROLE]-[task]
+   ```
+5. **Create pull request** - When work is complete or ready for review:
+   - **Option A (if GitHub CLI is installed)**: Agent can create PR using `gh pr create`
+   - **Option B (manual)**: Create PR via GitHub/GitLab web interface after branch is pushed
+   - **Option C**: User creates PR after reviewing the pushed branch
+
+### Pull Request Creation
+
+**Can agents create pull requests?**
+
+Agents can create pull requests if GitHub CLI (`gh`) is installed and authenticated. Otherwise, PRs should be created manually.
+
+**If GitHub CLI is available:**
+- Agent can create PR after pushing branch: `gh pr create --title "Description" --body "Details"`
+- Agent will automatically create PR when work is complete
+
+**If GitHub CLI is not available:**
+- Agent will push the branch and note that PR needs to be created manually
+- User can create PR via web interface or install GitHub CLI for future automation
+
+**PR Best Practices:**
+- Include descriptive title with role and task
+- Add body explaining what was implemented
+- Reference checklist items completed
+- Note any breaking changes or important considerations
 
 ### Important Notes
 
@@ -391,6 +417,8 @@ Continue working on the [ROLE] checklist in docs/CHECKLISTS.md.
 - Update documentation if you make changes
 - Test your implementation
 - Make regular commits with descriptive messages
+- Push the branch when work is complete
+- Create a pull request if GitHub CLI (`gh`) is available, otherwise note that PR needs to be created manually
 
 **Resources to Review:**
 1. docs/AGENTS.md - Your role definition and branching strategy

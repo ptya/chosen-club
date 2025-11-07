@@ -35,6 +35,8 @@ Continue working on the [ROLE] checklist in docs/CHECKLISTS.md.
 - Update documentation if you make changes
 - Test your implementation
 - Make regular commits with descriptive messages
+- Push the branch when work is complete
+- Create a pull request if GitHub CLI (`gh`) is available, otherwise note that PR needs to be created manually
 
 **Resources to Review:**
 1. docs/AGENTS.md - Your role definition, resources, and branching strategy
