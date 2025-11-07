@@ -47,12 +47,23 @@ Role-specific implementation checklists:
 
 **Track progress** by checking off items as you complete them.
 
+### [AGENTS.md](./AGENTS.md)
+Agent guide and role definitions:
+- Agent roles and their responsibilities
+- Role-specific resources and documentation
+- Project structure overview
+- Key technologies and patterns
+- Base prompt template for continuing checklist work
+
+**Essential for** AI agents and developers working on the project. Use this to understand which resources are relevant to your role.
+
 ## Quick Start
 
 1. **New to the project?** Start with [SPECIFICATION.md](./SPECIFICATION.md)
-2. **Setting up locally?** Follow [SETUP.md](./SETUP.md)
-3. **Implementing features?** Use [CHECKLISTS.md](./CHECKLISTS.md) to track your work
-4. **Working with the database?** Reference [SCHEMA.md](./SCHEMA.md)
+2. **AI Agent or Developer?** Read [AGENTS.md](./AGENTS.md) to understand your role and resources
+3. **Setting up locally?** Follow [SETUP.md](./SETUP.md)
+4. **Implementing features?** Use [CHECKLISTS.md](./CHECKLISTS.md) to track your work
+5. **Working with the database?** Reference [SCHEMA.md](./SCHEMA.md)
 
 ## Document Maintenance
 
