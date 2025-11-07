@@ -5,37 +5,37 @@ This document contains role-specific checklists for implementing Chosen Club. Ea
 ## Database Agent Checklist
 
 ### Schema Implementation
-- [ ] Create `users` table with all required fields
-- [ ] Create `games` table with all required fields
-- [ ] Create `pairs` table with all required fields
-- [ ] Create `pair_invitations` table with all required fields
-- [ ] Create `names` table with all required fields
-- [ ] Create `player_games` table with all required fields
-- [ ] Create `name_battles` table with all required fields
-- [ ] Create `name_appearances` table with all required fields
-- [ ] Create `excluded_names` table with all required fields
-- [ ] Create `chosen_ones` table with all required fields
-- [ ] Create `tournament_brackets` table with all required fields
-- [ ] Create `game_config` table with all required fields
-- [ ] Create `league_stats` table with all required fields
+- [x] Create `users` table with all required fields
+- [x] Create `games` table with all required fields
+- [x] Create `pairs` table with all required fields
+- [x] Create `pair_invitations` table with all required fields
+- [x] Create `names` table with all required fields
+- [x] Create `player_games` table with all required fields
+- [x] Create `name_battles` table with all required fields
+- [x] Create `name_appearances` table with all required fields
+- [x] Create `excluded_names` table with all required fields
+- [x] Create `chosen_ones` table with all required fields
+- [x] Create `tournament_brackets` table with all required fields
+- [x] Create `game_config` table with all required fields
+- [x] Create `league_stats` table with all required fields
 
 ### Constraints and Indexes
-- [ ] Add all primary key constraints
-- [ ] Add all foreign key constraints
-- [ ] Add all unique constraints
-- [ ] Add all check constraints (name_type, status values)
-- [ ] Create all required indexes for performance
-- [ ] Add NOT NULL constraints where appropriate
-- [ ] Add default values where specified
+- [x] Add all primary key constraints
+- [x] Add all foreign key constraints
+- [x] Add all unique constraints
+- [x] Add all check constraints (name_type, status values)
+- [x] Create all required indexes for performance
+- [x] Add NOT NULL constraints where appropriate
+- [x] Add default values where specified
 
 ### Relationships
-- [ ] Verify all foreign key relationships are correct
+- [x] Verify all foreign key relationships are correct
 - [ ] Test cascade behaviors (if any)
-- [ ] Ensure referential integrity
+- [x] Ensure referential integrity
 
 ### Migration Files
-- [ ] Generate initial migration with `drizzle-kit generate`
-- [ ] Review migration SQL for correctness
+- [x] Generate initial migration with `drizzle-kit generate`
+- [x] Review migration SQL for correctness
 - [ ] Test migration on local database
 - [ ] Document any manual migration steps needed
 
@@ -95,12 +95,12 @@ This document contains role-specific checklists for implementing Chosen Club. Ea
 - [ ] `GET /api/pairs/:id` - Get pair details
 
 #### Phase 1 Logic
-- [ ] `GET /api/games/:id/phase1/next-battle` - Get next name battle
-- [ ] `POST /api/games/:id/phase1/battle` - Submit battle result
-- [ ] `GET /api/games/:id/phase1/progress` - Get Phase 1 progress
-- [ ] Implement DOOM option logic
-- [ ] Implement 3-appearance limit logic
-- [ ] Track name appearances per player
+- [x] `GET /api/games/:id/phase1/next-battle` - Get next name battle
+- [x] `POST /api/games/:id/phase1/battle` - Submit battle result
+- [x] `GET /api/games/:id/phase1/progress` - Get Phase 1 progress
+- [x] Implement DOOM option logic
+- [x] Implement 3-appearance limit logic
+- [x] Track name appearances per player
 
 #### Phase 2 Logic
 - [ ] `POST /api/games/:id/phase2/request-start` - Request Phase 2 start (pair mode)
@@ -132,13 +132,13 @@ This document contains role-specific checklists for implementing Chosen Club. Ea
 - [ ] Implement ranking algorithm
 
 ### Server Utilities
-- [ ] Create database query helpers
-- [ ] Create battle logic utilities
+- [x] Create database query helpers
+- [x] Create battle logic utilities
 - [ ] Create tournament bracket generator
-- [ ] Create name selection algorithm (avoid excluded, respect limits)
+- [x] Create name selection algorithm (avoid excluded, respect limits)
 - [ ] Create email sending utility (for invitations)
 - [ ] Create token generation utility (for invitations)
-- [ ] Ensure all server-side error messages use Paraglide translations
+- [ ] Ensure all server-side error messages use Paraglide translations (Phase 1 uses English, needs update)
 - [ ] Create email template system with i18n support
 
 ### Error Handling

@@ -1,4 +1,20 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"hello_world": "Hello, {name} from en!"
+	"hello_world": "Hello, {name} from en!",
+	"phase1": {
+		"next_battle_not_found": "No more battles available",
+		"battle_submitted": "Battle submitted successfully",
+		"error": {
+			"invalid_game_id": "Invalid game ID",
+			"unauthorized": "Unauthorized",
+			"player_game_not_found": "Player game not found",
+			"not_in_phase1": "Not in Phase 1",
+			"invalid_name_ids": "Invalid name IDs",
+			"name_ids_same": "Name IDs must be different",
+			"both_winner_and_doom": "Cannot have both winner and DOOM selected",
+			"no_winner_or_doom": "Must select either winner or DOOM",
+			"winner_not_in_battle": "Winner must be one of the battle names",
+			"internal_error": "Internal server error"
+		}
+	}
 }

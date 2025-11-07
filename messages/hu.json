@@ -1,4 +1,20 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"hello_world": "Hello, {name} from hu!"
+	"hello_world": "Hello, {name} from hu!",
+	"phase1": {
+		"next_battle_not_found": "Nincs több csata elérhető",
+		"battle_submitted": "Csata sikeresen elküldve",
+		"error": {
+			"invalid_game_id": "Érvénytelen játék azonosító",
+			"unauthorized": "Nincs jogosultság",
+			"player_game_not_found": "Játékos játék nem található",
+			"not_in_phase1": "Nem 1. fázisban van",
+			"invalid_name_ids": "Érvénytelen név azonosítók",
+			"name_ids_same": "A név azonosítók nem lehetnek azonosak",
+			"both_winner_and_doom": "Nem lehet egyszerre győztes és DOOM kiválasztva",
+			"no_winner_or_doom": "Válasszon győztest vagy DOOM opciót",
+			"winner_not_in_battle": "A győztesnek a csata egyik nevének kell lennie",
+			"internal_error": "Belső szerver hiba"
+		}
+	}
 }
