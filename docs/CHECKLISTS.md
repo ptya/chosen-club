@@ -42,6 +42,7 @@ This document contains role-specific checklists for implementing Chosen Club. Ea
 ### Seed Data
 - [ ] Create seed script for initial names (boys)
 - [ ] Create seed script for initial names (girls)
+- [ ] Include nationality field in seed data (default to 'unknown', update separately as needed)
 - [ ] Test seed scripts
 - [ ] Document seed data sources
 
@@ -370,6 +371,20 @@ This document contains role-specific checklists for implementing Chosen Club. Ea
 ---
 
 ## General Implementation Notes
+
+### Branching Strategy
+
+**CRITICAL: All agents MUST create a new branch before starting work.**
+
+- **Branch naming pattern**: `agent-[ROLE]-[task]`
+  - `[ROLE]` = role in lowercase (e.g., `database`, `sveltekit-pro`, `frontend-ui`, `documentation`)
+  - `[task]` = short descriptive task name in kebab-case (e.g., `create-users-table`, `phase1-api-routes`)
+- **Examples**: 
+  - `agent-database-create-users-table`
+  - `agent-sveltekit-pro-phase1-api-routes`
+  - `agent-frontend-ui-battle-interface`
+- **Process**: Create branch → Work → Commit → Push → Create PR
+- See `docs/AGENTS.md` for complete branching strategy details
 
 ### Priority Order
 1. **Database Schema** - Foundation for everything

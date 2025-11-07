@@ -89,10 +89,12 @@ Stores the pool of names available for selection.
 | `id` | SERIAL | PRIMARY KEY | Unique name identifier |
 | `name` | VARCHAR(255) | NOT NULL | The actual name |
 | `name_type` | VARCHAR(10) | NOT NULL, CHECK | Either 'boy' or 'girl' |
+| `nationality` | VARCHAR(2) | NOT NULL, DEFAULT 'unknown' | ISO 3166-1 alpha-2 country code (e.g., 'hu', 'en', 'us') or 'unknown' for name origin/nationality |
 | `created_at` | TIMESTAMP | NOT NULL, DEFAULT NOW() | When name was added to system |
 
 **Indexes**:
 - `idx_names_type` on `name_type`
+- `idx_names_nationality` on `nationality`
 - `idx_names_name_type` on `(name, name_type)` (unique)
 
 ### `player_games`

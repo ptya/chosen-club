@@ -228,15 +228,58 @@ chosen-club/
 - Email templates must support both languages
 - Test UI with Hungarian text (longer strings, special characters)
 
+## Branching Strategy
+
+**CRITICAL: All agents MUST create a new branch before starting work.**
+
+### Branch Naming Convention
+
+When starting work on a checklist, create a new branch using this pattern:
+
+```
+agent-[ROLE]-[task]
+```
+
+Where:
+- `[ROLE]` is the agent role in lowercase (e.g., `database`, `sveltekit-pro`, `frontend-ui`, `documentation`)
+- `[task]` is a short, descriptive task name in kebab-case (e.g., `create-users-table`, `phase1-api-routes`, `battle-interface`)
+
+### Examples
+
+- `agent-database-create-users-table`
+- `agent-sveltekit-pro-phase1-api-routes`
+- `agent-frontend-ui-battle-interface`
+- `agent-documentation-api-docs`
+
+### Branch Creation Process
+
+1. **Before starting any work**, create a new branch:
+   ```bash
+   git checkout -b agent-[ROLE]-[task]
+   ```
+2. **Work on the branch** - Complete checklist items
+3. **Commit changes** - Make regular commits with descriptive messages
+4. **Push the branch** - Push to remote when ready for review
+5. **Create pull request** - When work is complete or ready for review
+
+### Important Notes
+
+- **Never work directly on `main` branch** - Always create a feature branch
+- **One branch per task** - Create separate branches for different tasks
+- **Descriptive names** - Use clear, descriptive task names in the branch name
+- **Keep branches focused** - One branch should focus on one logical task or feature
+
 ## Working with Checklists
 
 When continuing work on a checklist:
 
-1. **Identify your role** - Which agent role are you operating as?
-2. **Read the relevant checklist section** - Go to `docs/CHECKLISTS.md` and find your role's checklist
-3. **Check off completed items** - Mark items as `[x]` when done
-4. **Reference supporting docs** - Use the resources listed for your role above
-5. **Update documentation** - If you make changes, update relevant docs
+1. **Create a new branch** - Use the pattern `agent-[ROLE]-[task]` (see Branching Strategy above)
+2. **Identify your role** - Which agent role are you operating as?
+3. **Read the relevant checklist section** - Go to `docs/CHECKLISTS.md` and find your role's checklist
+4. **Check off completed items** - Mark items as `[x]` when done
+5. **Reference supporting docs** - Use the resources listed for your role above
+6. **Update documentation** - If you make changes, update relevant docs
+7. **Commit and push** - Make regular commits and push your branch
 
 ## Cross-Role Collaboration
 
@@ -328,22 +371,32 @@ You are operating as a [ROLE] agent for the Chosen Club project.
 - Primary Responsibilities: [See role section above]
 - Relevant Resources: [See role section above]
 
+**Branching (REQUIRED):**
+- BEFORE starting any work, create a new branch using: `agent-[ROLE]-[task]`
+- Replace [ROLE] with your role in lowercase (e.g., database, sveltekit-pro, frontend-ui, documentation)
+- Replace [task] with a short descriptive task name in kebab-case (e.g., create-users-table, phase1-api-routes)
+- Example: `agent-database-create-users-table`
+- Use: `git checkout -b agent-[ROLE]-[task]`
+
 **Task:**
 Continue working on the [ROLE] checklist in docs/CHECKLISTS.md. 
 [Add specific instructions about what to work on]
 
 **Important:**
+- Create a new branch FIRST before starting any work (see Branching above)
 - Read the relevant documentation files for your role before starting
 - Mark completed items in CHECKLISTS.md as you progress
 - Follow the project's patterns and conventions
 - Ensure all user-facing text uses Paraglide translations
 - Update documentation if you make changes
 - Test your implementation
+- Make regular commits with descriptive messages
 
 **Resources to Review:**
-1. docs/CHECKLISTS.md - Your role's checklist section
-2. [Role-specific primary docs from above]
-3. [Any other relevant files]
+1. docs/AGENTS.md - Your role definition and branching strategy
+2. docs/CHECKLISTS.md - Your role's checklist section
+3. [Role-specific primary docs from above]
+4. [Any other relevant files]
 
 Please proceed with the next items in the checklist.
 ```
@@ -362,21 +415,28 @@ You are operating as a Database Agent for the Chosen Club project.
 - Primary Responsibilities: Database schema, migrations, seed data, optimization
 - Relevant Resources: docs/SCHEMA.md, docs/CHECKLISTS.md (Database section), src/lib/server/db/schema.ts
 
+**Branching (REQUIRED):**
+- BEFORE starting any work, create a new branch: `agent-database-create-remaining-tables`
+- Use: `git checkout -b agent-database-create-remaining-tables`
+
 **Task:**
 Continue working on the Database Agent checklist in docs/CHECKLISTS.md. 
 Focus on creating the remaining tables that haven't been implemented yet.
 
 **Important:**
+- Create a new branch FIRST before starting any work (see Branching above)
 - Read docs/SCHEMA.md to understand the complete schema
 - Mark completed items in CHECKLISTS.md as you progress
 - Follow Drizzle ORM patterns
 - Update SCHEMA.md if you make changes
 - Test migrations locally before committing
+- Make regular commits with descriptive messages
 
 **Resources to Review:**
-1. docs/CHECKLISTS.md - Database Agent Checklist section
-2. docs/SCHEMA.md - Complete database schema
-3. src/lib/server/db/schema.ts - Current schema implementation
+1. docs/AGENTS.md - Database Agent role definition and branching strategy
+2. docs/CHECKLISTS.md - Database Agent Checklist section
+3. docs/SCHEMA.md - Complete database schema
+4. src/lib/server/db/schema.ts - Current schema implementation
 
 Please proceed with the next items in the checklist.
 ```
@@ -385,6 +445,7 @@ Please proceed with the next items in the checklist.
 
 ## Notes for Future Agents
 
+- **Create a new branch FIRST** - Always create a branch using `agent-[ROLE]-[task]` before starting any work (see Branching Strategy above)
 - **Always read the relevant documentation** for your role before starting work
 - **Check off checklist items** as you complete them
 - **Update documentation** when you make changes
@@ -393,6 +454,7 @@ Please proceed with the next items in the checklist.
 - **Use Paraglide** for all user-facing text
 - **Default to Hungarian** for new features
 - **Coordinate with other roles** when changes affect multiple areas
+- **Make regular commits** with descriptive messages
 
 ---
 

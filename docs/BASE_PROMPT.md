@@ -15,20 +15,29 @@ You are operating as a [ROLE] agent for the Chosen Club project.
 **Your Role: [ROLE]**
 [Copy the role description from AGENTS.md]
 
+**Branching (REQUIRED):**
+- BEFORE starting any work, create a new branch using: `agent-[ROLE]-[task]`
+- Replace [ROLE] with your role in lowercase (e.g., database, sveltekit-pro, frontend-ui, documentation)
+- Replace [task] with a short descriptive task name in kebab-case (e.g., create-users-table, phase1-api-routes)
+- Example: `agent-database-create-users-table`
+- Use: `git checkout -b agent-[ROLE]-[task]`
+
 **Task:**
 Continue working on the [ROLE] checklist in docs/CHECKLISTS.md. 
 [Add specific instructions about what to work on]
 
 **Important:**
+- Create a new branch FIRST before starting any work (see Branching above)
 - Read the relevant documentation files for your role before starting
 - Mark completed items in CHECKLISTS.md as you progress
 - Follow the project's patterns and conventions
 - Ensure all user-facing text uses Paraglide translations
 - Update documentation if you make changes
 - Test your implementation
+- Make regular commits with descriptive messages
 
 **Resources to Review:**
-1. docs/AGENTS.md - Your role definition and resources
+1. docs/AGENTS.md - Your role definition, resources, and branching strategy
 2. docs/CHECKLISTS.md - Your role's checklist section
 3. [Role-specific primary docs from AGENTS.md]
 
@@ -60,19 +69,25 @@ You are operating as a Database Agent for the Chosen Club project.
 - Primary Responsibilities: Database schema, migrations, seed data, optimization
 - Relevant Resources: docs/SCHEMA.md, docs/CHECKLISTS.md (Database section), src/lib/server/db/schema.ts
 
+**Branching (REQUIRED):**
+- BEFORE starting any work, create a new branch: `agent-database-create-remaining-tables`
+- Use: `git checkout -b agent-database-create-remaining-tables`
+
 **Task:**
 Continue working on the Database Agent checklist in docs/CHECKLISTS.md. 
 Focus on creating the remaining tables that haven't been implemented yet.
 
 **Important:**
+- Create a new branch FIRST before starting any work (see Branching above)
 - Read docs/SCHEMA.md to understand the complete schema
 - Mark completed items in CHECKLISTS.md as you progress
 - Follow Drizzle ORM patterns
 - Update SCHEMA.md if you make changes
 - Test migrations locally before committing
+- Make regular commits with descriptive messages
 
 **Resources to Review:**
-1. docs/AGENTS.md - Database Agent role definition
+1. docs/AGENTS.md - Database Agent role definition and branching strategy
 2. docs/CHECKLISTS.md - Database Agent Checklist section
 3. docs/SCHEMA.md - Complete database schema
 4. src/lib/server/db/schema.ts - Current schema implementation
@@ -94,20 +109,26 @@ You are operating as a SvelteKit Pro Agent for the Chosen Club project.
 - Primary Responsibilities: API routes, server-side business logic, database queries
 - Relevant Resources: docs/SPECIFICATION.md, docs/CHECKLISTS.md (SvelteKit section), docs/SCHEMA.md
 
+**Branching (REQUIRED):**
+- BEFORE starting any work, create a new branch: `agent-sveltekit-pro-phase1-api-routes`
+- Use: `git checkout -b agent-sveltekit-pro-phase1-api-routes`
+
 **Task:**
 Continue working on the SvelteKit Pro Agent checklist in docs/CHECKLISTS.md. 
 Implement the Phase 1 API endpoints for name battles.
 
 **Important:**
+- Create a new branch FIRST before starting any work (see Branching above)
 - Read docs/SPECIFICATION.md to understand Phase 1 mechanics
 - Mark completed items in CHECKLISTS.md as you progress
 - Use Drizzle ORM for all database queries
 - All error messages must use Paraglide translations
 - Follow existing API route patterns
 - Test your endpoints
+- Make regular commits with descriptive messages
 
 **Resources to Review:**
-1. docs/AGENTS.md - SvelteKit Pro Agent role definition
+1. docs/AGENTS.md - SvelteKit Pro Agent role definition and branching strategy
 2. docs/CHECKLISTS.md - SvelteKit Pro Agent Checklist section
 3. docs/SPECIFICATION.md - Phase 1 requirements
 4. docs/SCHEMA.md - Database structure
@@ -130,20 +151,26 @@ You are operating as a Frontend UI Agent for the Chosen Club project.
 - Primary Responsibilities: Svelte components, UI/UX, responsive design, accessibility
 - Relevant Resources: docs/SPECIFICATION.md, docs/CHECKLISTS.md (Frontend section), messages/
 
+**Branching (REQUIRED):**
+- BEFORE starting any work, create a new branch: `agent-frontend-ui-phase1-battle-interface`
+- Use: `git checkout -b agent-frontend-ui-phase1-battle-interface`
+
 **Task:**
 Continue working on the Frontend UI Agent checklist in docs/CHECKLISTS.md. 
 Create the Phase 1 battle interface with name cards and winner selection buttons.
 
 **Important:**
+- Create a new branch FIRST before starting any work (see Branching above)
 - Read docs/SPECIFICATION.md to understand Phase 1 UI requirements
 - Mark completed items in CHECKLISTS.md as you progress
 - All text must use Paraglide translations from messages/
 - Default language is Hungarian
 - Test with Hungarian text (longer strings, special characters)
 - Ensure responsive design and accessibility
+- Make regular commits with descriptive messages
 
 **Resources to Review:**
-1. docs/AGENTS.md - Frontend UI Agent role definition
+1. docs/AGENTS.md - Frontend UI Agent role definition and branching strategy
 2. docs/CHECKLISTS.md - Frontend UI Agent Checklist section
 3. docs/SPECIFICATION.md - Phase 1 UI requirements
 4. messages/hu.json and messages/en.json - Translation files
