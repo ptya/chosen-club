@@ -1,9 +1,11 @@
-import { json, error } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
-import { submitPhase1Battle } from '$lib/server/utils/phase1';
+import { error, json } from '@sveltejs/kit';
+import { and, eq } from 'drizzle-orm';
+
 import { db } from '$lib/server/db';
 import { playerGames } from '$lib/server/db/schema';
-import { and, eq } from 'drizzle-orm';
+import { submitPhase1Battle } from '$lib/server/utils/phase1';
+
+import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ params, request, locals }) => {
 	try {
@@ -54,13 +56,7 @@ export const POST: RequestHandler = async ({ params, request, locals }) => {
 			return error(400, { message: 'Winner must be one of the battle names' });
 		}
 
-		const battle = await submitPhase1Battle(
-			playerGame.id,
-			name1Id,
-			name2Id,
-			winnerId,
-			doomSelected,
-		);
+		const battle = await submitPhase1Battle(playerGame.id, name1Id, name2Id, winnerId, doomSelected);
 
 		return json({ battle, message: 'Battle submitted successfully' });
 	} catch (err) {
@@ -83,4 +79,3 @@ export const POST: RequestHandler = async ({ params, request, locals }) => {
 		return error(500, { message: 'Internal server error' });
 	}
 };
-

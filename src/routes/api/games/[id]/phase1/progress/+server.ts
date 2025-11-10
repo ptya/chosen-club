@@ -1,9 +1,11 @@
-import { json, error } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
-import { getPhase1Progress } from '$lib/server/utils/phase1';
+import { error, json } from '@sveltejs/kit';
+import { and, eq } from 'drizzle-orm';
+
 import { db } from '$lib/server/db';
 import { playerGames } from '$lib/server/db/schema';
-import { and, eq } from 'drizzle-orm';
+import { getPhase1Progress } from '$lib/server/utils/phase1';
+
+import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async ({ params, locals }) => {
 	try {
@@ -43,4 +45,3 @@ export const GET: RequestHandler = async ({ params, locals }) => {
 		return error(500, { message: 'Internal server error' });
 	}
 };
-

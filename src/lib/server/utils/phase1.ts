@@ -1,13 +1,15 @@
+import { and, eq, inArray, notInArray, sql } from 'drizzle-orm';
+
 import { db } from '$lib/server/db';
 import {
 	excludedNames,
 	gameConfig,
+	games,
 	nameAppearances,
 	nameBattles,
 	names,
 	playerGames,
 } from '$lib/server/db/schema';
-import { and, eq, inArray, notInArray, sql } from 'drizzle-orm';
 
 /**
  * Get the next battle for Phase 1
@@ -19,11 +21,7 @@ import { and, eq, inArray, notInArray, sql } from 'drizzle-orm';
  */
 export async function getNextPhase1Battle(playerGameId: number) {
 	// Get player game
-	const [playerGame] = await db
-		.select()
-		.from(playerGames)
-		.where(eq(playerGames.id, playerGameId))
-		.limit(1);
+	const [playerGame] = await db.select().from(playerGames).where(eq(playerGames.id, playerGameId)).limit(1);
 
 	if (!playerGame) {
 		throw new Error('Player game not found');
@@ -34,22 +32,14 @@ export async function getNextPhase1Battle(playerGameId: number) {
 	}
 
 	// Get game
-	const [game] = await db
-		.select()
-		.from(games)
-		.where(eq(games.id, playerGame.gameId))
-		.limit(1);
+	const [game] = await db.select().from(games).where(eq(games.id, playerGame.gameId)).limit(1);
 
 	if (!game) {
 		throw new Error('Game not found');
 	}
 
 	// Get game config
-	const [config] = await db
-		.select()
-		.from(gameConfig)
-		.where(eq(gameConfig.gameId, game.id))
-		.limit(1);
+	const [config] = await db.select().from(gameConfig).where(eq(gameConfig.gameId, game.id)).limit(1);
 
 	const maxAppearances = config?.maxPhase1Appearances ?? 3;
 
@@ -89,9 +79,7 @@ export async function getNextPhase1Battle(playerGameId: number) {
 			),
 		);
 
-	const appearanceMap = new Map(
-		appearances.map((a) => [a.nameId, { count: a.appearanceCount, hasWon: a.hasWon }]),
-	);
+	const appearanceMap = new Map(appearances.map((a) => [a.nameId, { count: a.appearanceCount, hasWon: a.hasWon }]));
 
 	// Filter names that can still appear
 	// A name can appear if:
@@ -141,11 +129,7 @@ export async function submitPhase1Battle(
 	}
 
 	// Get player game
-	const [playerGame] = await db
-		.select()
-		.from(playerGames)
-		.where(eq(playerGames.id, playerGameId))
-		.limit(1);
+	const [playerGame] = await db.select().from(playerGames).where(eq(playerGames.id, playerGameId)).limit(1);
 
 	if (!playerGame) {
 		throw new Error('Player game not found');
@@ -201,20 +185,11 @@ export async function submitPhase1Battle(
 /**
  * Update name appearance tracking
  */
-async function updateNameAppearances(
-	playerGameId: number,
-	nameId: number,
-	isWinner: boolean,
-) {
+async function updateNameAppearances(playerGameId: number, nameId: number, isWinner: boolean) {
 	const [existing] = await db
 		.select()
 		.from(nameAppearances)
-		.where(
-			and(
-				eq(nameAppearances.playerGameId, playerGameId),
-				eq(nameAppearances.nameId, nameId),
-			),
-		)
+		.where(and(eq(nameAppearances.playerGameId, playerGameId), eq(nameAppearances.nameId, nameId)))
 		.limit(1);
 
 	if (existing) {
@@ -240,22 +215,14 @@ async function updateNameAppearances(
  * Get Phase 1 progress for a player
  */
 export async function getPhase1Progress(playerGameId: number) {
-	const [playerGame] = await db
-		.select()
-		.from(playerGames)
-		.where(eq(playerGames.id, playerGameId))
-		.limit(1);
+	const [playerGame] = await db.select().from(playerGames).where(eq(playerGames.id, playerGameId)).limit(1);
 
 	if (!playerGame) {
 		throw new Error('Player game not found');
 	}
 
 	// Get game config
-	const [config] = await db
-		.select()
-		.from(gameConfig)
-		.where(eq(gameConfig.gameId, playerGame.gameId))
-		.limit(1);
+	const [config] = await db.select().from(gameConfig).where(eq(gameConfig.gameId, playerGame.gameId)).limit(1);
 
 	const maxAppearances = config?.maxPhase1Appearances ?? 3;
 
@@ -296,4 +263,3 @@ export async function getPhase1Progress(playerGameId: number) {
 		maxAppearances,
 	};
 }
-

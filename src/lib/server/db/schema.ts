@@ -1,4 +1,4 @@
-import { sql } from 'drizzle-orm';
+import { type InferSelectModel, sql } from 'drizzle-orm';
 import { boolean, check, index, integer, pgTable, serial, timestamp, unique, varchar } from 'drizzle-orm/pg-core';
 
 // Users table
@@ -301,3 +301,18 @@ export const leagueStats = pgTable(
 		index('idx_league_rank').on(table.currentRank),
 	],
 );
+
+// Type exports
+export type User = InferSelectModel<typeof users>;
+export type Game = InferSelectModel<typeof games>;
+export type Pair = InferSelectModel<typeof pairs>;
+export type PairInvitation = InferSelectModel<typeof pairInvitations>;
+export type Name = InferSelectModel<typeof names>;
+export type PlayerGame = InferSelectModel<typeof playerGames>;
+export type NameBattle = InferSelectModel<typeof nameBattles>;
+export type NameAppearance = InferSelectModel<typeof nameAppearances>;
+export type ExcludedName = InferSelectModel<typeof excludedNames>;
+export type ChosenOne = InferSelectModel<typeof chosenOnes>;
+export type TournamentBracket = InferSelectModel<typeof tournamentBrackets>;
+export type GameConfig = InferSelectModel<typeof gameConfig>;
+export type LeagueStat = InferSelectModel<typeof leagueStats>;
